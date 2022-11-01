@@ -4,6 +4,7 @@ import { Spinner } from '../components/Spinner';
 import { get } from '../utils/httpClient';
 import styles from './MovieDetails.module.css';
 import { useQuery } from '../hooks/useQuery';
+import { getMovieImg } from '../utils/getMovieImg';
 
 export function MovieDetails() {
 
@@ -26,7 +27,7 @@ export function MovieDetails() {
 		return <Spinner />;
 	}
 	
-	const imageUrl = "https://image.tmdb.org/t/p/w300" + movie.poster_path;
+	const imageUrl = getMovieImg(movie.poster_path, 300);
 	return(
 		<div className={styles.detailsContainer}>
 			<img className={`${styles.col} ${styles.movieImage}`} src={imageUrl} alt={movie.title} />
