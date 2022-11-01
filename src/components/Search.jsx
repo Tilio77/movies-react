@@ -20,7 +20,9 @@ export function Search() {
 				<input 
 					className={styles.searchInput} 
 					type="text" 
-					value={search} 
+					value={search}
+					placeholder="Title"
+					aria-label="Search Movies" 
 					onChange={(e) => {
 						const value = (e.target.value);
 						history.push("/?search=" + value);
